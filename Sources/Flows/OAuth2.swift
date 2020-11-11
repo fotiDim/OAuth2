@@ -405,7 +405,7 @@ open class OAuth2: OAuth2Base {
 	                      on success
 	*/
 	public func registerClientIfNeeded(callback: @escaping ((OAuth2JSON?, OAuth2Error?) -> Void)) {
-		if nil != clientId || !type(of: self).clientIdMandatory {
+		if nil == clientId || !type(of: self).clientIdMandatory {
 			callOnMainThread() {
 				callback(nil, nil)
 			}
